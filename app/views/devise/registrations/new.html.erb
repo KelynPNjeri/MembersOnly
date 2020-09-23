@@ -1,5 +1,11 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true} ) do |f| %>
-<%= f.error_notification %>
+
+<ul>
+  <% resource.errors.full_messages.each do |error| %>
+
+    <li><%= error %></li>
+  <% end %>
+  </ul>
 
 <div class="form-inputs">
     <%= f.input :name,
@@ -16,15 +22,17 @@
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                hint: (" #{@minimum_password_length} characters minimum " if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
 </div>
- <%= f.label :image, "Attach an Image" %><br />
-  <%= f.file_field :image %>
-  
+<%= f.label :image, "Attach an Image" %><br />
+<%= f.file_field :image, accept: ['image/jpg', 'image/jpeg', 'image/png']%>
+
+
+
 <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
 </div>
