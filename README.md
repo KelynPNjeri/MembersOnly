@@ -1,24 +1,56 @@
-# README
+# Members Only Project
+  The aim of this project is practicing what we have learned about Authentication by creating a blog in which:
+* You can create username, email and password;
+* Create posts;
+* Only signed in users can see the author of each post, when you are not logged in the posts are anonymous.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+- Ruby on Rails version 6.0
 
-* System dependencies
+### Prerequisites
 
-* Configuration
+- Browser (Google Chrome, Mozilla Firefox, Safari or any other browser)
+- Ruby and Ruby on Rails installed in your machine
+- SQLite installed in your machine
 
-* Database creation
 
-* Database initialization
+### Getting Started
+```
+Open Terminal
+run git clone git@github.com:KelynPNjeri/MembersOnly.git
+run cd MembersOnly
+run rake db:migrate
+run rails s
+```
 
-* How to run the test suite
+## Authors
 
-* Services (job queues, cache servers, search engines, etc.)
+👤 **Alexandre Bouhid**
 
-* Deployment instructions
+- Github: [@abouhid](https://github.com/abouhid)
+- LinkedIn: [Alexandre Bouhid](https://www.linkedin.com/in/alexandrebouhid/)
 
-* ...
+👤 **Kelyn Paul Njeri**
+
+- Github: [@KelynPNjeri](https://github.com/KelynPNjeri)
+- Twitter: [@KelynNjeri](https://twitter.com/kelyn-njeri)
+- Linkedin: [Kelyn Paul](https://linkedin.com/kelyn-paul)
+
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page]().
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Microverse
+- GitHub
+- TheOdinProject

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<% @posts.each do |post| %>
+<div class="box">
+    <article class="media">
+        <div class="media-left">
+            <%unless user_signed_in?%>
+
+            <img class="image is-64x64" src="https://forum.truckersmp.com/uploads/monthly_2019_09/imported-photo-89882.jpeg.f197dadcc401d9b9bcf41e7f38bcc5cd.jpeg">
+            <%else%>
+              <% if post.user.image.exists? %>
+            <%= image_tag post.user.image.url(:thumb) %><br />
+            <% end %>
+            <%end%>
+        </div>
+        <div class="media-content">
+            <div class="content">
+                <% if user_signed_in? %>
+                <strong><%= post.user.name %></strong><br />
+                <small><%= post.user.username %></small><br />
+
+                <% else %>
+                <strong> Anonymous</strong><br />
+                <% end %>
+                <p><%= post.body %></p>
+            </div>
+        </div>
+    </article>
+</div>
+<% end %>
+<br>

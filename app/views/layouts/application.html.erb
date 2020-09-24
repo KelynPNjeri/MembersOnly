@@ -4,12 +4,52 @@
     <title>MembersOnly</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <% if flash[:notice] %>
+      <div class="notification is-primary global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger global-notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+    <nav class="navbar is-info">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-5s is-info">Members Only</h1>
+        <% end %>
+        <div class="navbar-burger burger" data-target="navbarExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div id="navbarExample" class="navbar-menu ">
+        <div class="navbar-end pt-2 pr-2">
+          <div class="field is-grouped">
+            <p class="control">
+              <%= link_to 'New Post', new_post_path, class: "button is-info is-inverted" %>
+            </p>
+            <p class="control">
+            <div class="ml-3">
+    <%if user_signed_in?%>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "button is-info is-inverted"  %>
+    <%else%>
+    <%= link_to 'Sign In', user_session_path, class: "button is-info is-inverted" %>
+
+    <%= link_to 'Register', new_registration_path(:user), class: "button is-info is-inverted" %>
+    <%end%>
+</div>
+            </p>
+          </div>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

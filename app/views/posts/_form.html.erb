@@ -1,0 +1,29 @@
+<%= simple_form_for(@post) do |f| %>
+
+
+<div class="box">
+    <article class="media">
+        <div class="media-left">
+            <% if post.user.image.exists? %>
+            <%= image_tag post.user.image.url(:thumb) %><br />
+            <% end %>
+        </div>
+        <div class="media-content">
+            <div class="content">
+                <strong><%= post.user.name %></strong><br />
+                <small><%= post.user.username %></small><br />
+                <%= f.error_notification %>
+                <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+                <div class="field">
+                    <div class="control">
+                        <%= f.input :body, label: "Spill the tea...", input_html: {class: "textarea"}, wrapper: false, label_html: {class:"label"}, placeholder: "Your secrets are safe with us."%>
+
+                    </div>
+                </div>
+                <div class="navbar-end pt-2 pr-2">
+<%= f.button :submit, class: "button is-info" %>
+</div>
+    </article>
+</div>
+
+<% end %>
